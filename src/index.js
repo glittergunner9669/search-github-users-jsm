@@ -5,10 +5,20 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { GithubProvider } from './context/context';
 import { Auth0Provider } from '@auth0/auth0-react';
-
+// dev-mlhu19lf.us.auth0.com
+// Q0ZrzwGoY6LQ5MNXDqK2nKoqxxvN5y0O
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Auth0Provider
+      domain='dev-mlhu19lf.us.auth0.com'
+      clientId='Q0ZrzwGoY6LQ5MNXDqK2nKoqxxvN5y0O'
+      redirectUri={window.location.origin}
+      cacheLocation='localstorage'
+    >
+      <GithubProvider>
+        <App />
+      </GithubProvider>
+    </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
